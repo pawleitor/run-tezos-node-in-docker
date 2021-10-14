@@ -1,1 +1,3 @@
-docker-compose -f node-setup-from-snapshot.docker-compose.yml up -d --remove-orphans --env-file mainnet.env
+docker-compose -f node-setup-from-snapshot.docker-compose.yml --env-file mainnet.env up -d --remove-orphans
+
+timeout 10
