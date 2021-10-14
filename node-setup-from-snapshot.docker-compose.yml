@@ -23,7 +23,7 @@ services:
       - "${RPC_PORT}:8732"
       - "${P2P_PORT}:9732"
     volumes:
-      - ./data/node:${TEZOS_NODE_DATA}
-      - ./data/client:${TEZOS_CLIENT_DATA}
+      - ./data/${NETWORK}/node:${TEZOS_NODE_DATA}
+      - ./data/${NETWORK}/client:${TEZOS_CLIENT_DATA}
       - ./snapshot:${SNAPSHOT_PATH}
     restart: on-failure
