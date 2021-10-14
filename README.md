@@ -1,5 +1,5 @@
 # Purpose
-To provide a quick way to sync and run a node on any platform using only Docker. Quickly import a full snapshot of Tezos data and run a Tezos node on **Windows**, Mac, Linux hosts using only Docker and Docker Compose.
+To provide a quick way to sync and run a Tezos node on any platform using only Docker. Quickly import a full snapshot of Tezos data and run a Tezos node on **Windows**, Mac, Linux hosts using only Docker and Docker Compose.
 
 # Prerequisites
 Install Docker Engine and Docker Compose. For Windows and Mac users, simply install [Docker Desktop](https://www.docker.com/products/docker-desktop), which contains all required software.
@@ -27,4 +27,4 @@ To run the node, use one of the startup scripts. Windows users will run start_ma
   is present and will simply run the node. The initial snapshot retrieval and import process will take approximately 1-2 hours.
 
 # Notes
-Please feel free to edit all files as you see fit to suit your purposes. For example, you may want to change tezos node configuration. You could do that by adding necessary commands to node-setup-from-snapshot.sh or by copying a config.json file into the container or by directly running tezos config commands in an existing tezos node container (which will get created after you run the startup convenience script above).
+Please feel free to edit all files as you see fit to suit your purposes. For example, you may want to change tezos node configuration. You could do that by adding necessary commands to node-setup-from-snapshot.sh or by copying a config.json file into the container or by directly running tezos-node config update command in an existing tezos node container (which will get created after you run the startup convenience script above).
