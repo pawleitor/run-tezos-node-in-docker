@@ -1,0 +1,1 @@
+docker-compose -f node-setup-from-snapshot.docker-compose.yml up -d --remove-orphans --env-file mainnet.env
