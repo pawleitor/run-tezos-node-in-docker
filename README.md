@@ -1,5 +1,5 @@
-# run-tezos-node-in-docker
-The purpose of this repo is to provide a quick way to sync and run a node on any platform using only Docker. Quickly import a full snapshot of Tezos data and run a Tezos node on **Windows**, Mac, Linux hosts using only Docker and Docker Compose.
+# Purpose
+To provide a quick way to sync and run a node on any platform using only Docker. Quickly import a full snapshot of Tezos data and run a Tezos node on **Windows**, Mac, Linux hosts using only Docker and Docker Compose.
 
 # Prerequisites
 Install Docker Engine and Docker Compose. For Windows users, simply install Docker Desktop, which contains all required software.
