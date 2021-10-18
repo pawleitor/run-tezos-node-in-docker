@@ -6,6 +6,7 @@ echo 'if data dir does not exist, create config and import snapshot'
 [ ! -d $TEZOS_NODE_DATA/data ] \
 && echo 'initialize node' \
 && tezos-node config --config-file=$CONFIG --network=$NETWORK init \
+&& tezos-node config --config-file=$CONFIG --rpc-addr=0.0.0.0:$RPC_PORT update \
 && echo 'always get new snapshot on rebiuld' \
 && wget $SNAPSHOT_URL -O $SNAPSHOT_PATH/$SNAPSHOT_FILE \
 && tezos-node snapshot import $SNAPSHOT_PATH/$SNAPSHOT_FILE --data-dir $DATA_DIR \
