@@ -13,6 +13,8 @@ services:
     entrypoint: /bin/sh ${STARTUP_SCRIPT}
     environment:
       - NETWORK=$NETWORK
+      - P2P_PORT=${P2P_PORT}
+      - RPC_PORT=${RPC_PORT}
       - SNAPSHOT_PATH=${SNAPSHOT_PATH}
       - SNAPSHOT_FILE=${SNAPSHOT_FILE}
       - SNAPSHOT_URL=${SNAPSHOT_URL}
