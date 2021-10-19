@@ -13,8 +13,8 @@ services:
     entrypoint: /bin/sh ${STARTUP_SCRIPT}
     environment:
       - NETWORK=$NETWORK
-      - ${P2P_PORT_HOST}=${P2P_PORT_CONTAINER}
-      - ${RPC_PORT_HOST}=${RPC_PORT_CONTAINER}
+      - P2P_PORT=${P2P_PORT_CONTAINER}
+      - RPC_PORT=${RPC_PORT_CONTAINER}
       - SNAPSHOT_PATH=${SNAPSHOT_PATH}
       - SNAPSHOT_FILE=${SNAPSHOT_FILE}
       - SNAPSHOT_URL=${SNAPSHOT_URL}
@@ -22,8 +22,8 @@ services:
       - TEZOS_CLIENT_DATA=${TEZOS_CLIENT_DATA}
     tty: true
     ports:
-      - "${RPC_PORT}:8732"
-      - "${P2P_PORT}:9732"
+      - "${RPC_PORT_HOST}:${RPC_PORT_CONTAINER}"
+      - "${P2P_PORT_HOST}:${P2P_PORT_CONTAINER}"
     volumes:
       - ./data/${NETWORK}/node:${TEZOS_NODE_DATA}
       - ./data/${NETWORK}/client:${TEZOS_CLIENT_DATA}
