@@ -15,7 +15,8 @@ To run the node, use one of the startup scripts. Windows users will run start_ma
 
 # Files and their use
 * start_mainnet.sh/start_mainnet.bat
-  * Convenience scripts to run necessary docker-compose command to start the node
+  * Convenience scripts to run necessary docker-compose command to start the node.
+  * This script can be re-run anytime to rebuild, get most recent updates to tezos binaries (via Docker Hub image), or simply to restart the node if something fails.
 * mainnet.env
   * Contains environment variables that get used by docker-compose for the build and that can also be used to supply arguments to the app itself
 * node-setup-from-snapshot.docker-compose.yml
