@@ -15,17 +15,26 @@ To run the node, use one of the startup scripts. Windows users will run start_ma
 
 # Files and their use
 * start_mainnet.sh/start_mainnet.bat
-  * Convenience scripts to run necessary docker-compose command to start the node.
-  * This script can be re-run anytime to rebuild, get most recent updates to tezos binaries (via Docker Hub image), or simply to restart the node if something fails.
+  * Convenience scripts to run necessary docker-compose command to start the node
+  * This script can be re-run anytime to rebuild, get most recent updates to tezos binaries (via Docker Hub image), or simply to restart the node if something fails
 * mainnet.env
   * Contains environment variables that get used by docker-compose for the build and that can also be used to supply arguments to the app itself
 * node-setup-from-snapshot.docker-compose.yml
-  * docker-compose.yml files can be used to manage one or more containers that are intended to work together. It can also pass variables to the container that gets built.
+  * docker-compose.yml files can be used to manage one or more containers that are intended to work together
+  * It can also pass variables to the container that gets built
 * node.dockerfile
-  * A Dockerfile builds a specific container from a specific image. In this case, this file is building upon the base tezos image.
+  * A Dockerfile builds a specific container from a specific image
+  * In our case, this file is building upon the base tezos image
 * node-setup-from-snapshot.sh
-  * The script that docker-compose will run in order to start the node. The snapshot import activity is managed in this script. Once snapshot has occurred, this script will detect that 
-  is present and will simply run the node. The initial snapshot retrieval and import process will take approximately 1-2 hours.
+  * The script that docker-compose will run in order to start the node
+  * The snapshot import activity is managed in this script
+  * Once snapshot has occurred, this script will detect that data is present and will simply run the node
+  * The initial snapshot retrieval and import process will take approximately 1-2 hours
 
 # Notes
-Please feel free to edit all files as you see fit to suit your purposes. For example, you may want to change tezos node configuration. You could do that by adding necessary commands to node-setup-from-snapshot.sh or by copying a config.json file into the container via the Dockerfile or by directly running tezos-node config update command in an existing tezos node container (which will get created after you run the startup convenience script above).
+After cloning or downloading repo, please feel free to edit all files as you see fit to suit your purposes.
+
+For example, you may want to change tezos node configuration. You could do that by:
+*  adding necessary commands to node-setup-from-snapshot.sh
+*  copying a config.json file into the container via the Dockerfile
+*  directly running 'tezos-node config update' command in the tezos node container (which will get created after you run the startup convenience script above)
