@@ -31,6 +31,25 @@ To run the node, use one of the startup scripts. Windows users will run start_ma
   * Once snapshot has occurred, this script will detect that data is present and will simply run the node
   * The initial snapshot retrieval and import process will take approximately 1-2 hours
 
+# Troubleshooting
+If after syncing and running successfully either of the following happens:
+* You encounter unexpected errors that don't resolve after restarting the node
+* You are unable to connect to peers
+
+Then do the following:
+* Delete the **data** directory to start over (new snapshot retrieval and import, new identity generated, new config created)
+* Also verify that ports are open on your machine for P2P connection and create firewall rules if needed
+* To create these rules on Windows:
+  * Navigate to Firewall, Advanced Settings to open Windows Defender Firewall with Advanced Security utility
+  * Select Inbound Rules
+  * Create new one if needed or modify existing one
+  * The inbound rule needs to specify:
+    * Profile is Public
+    * Program is: C:\program files\docker\docker\resources\com.docker.backend.exe (or wherever docker backend is installed on your machine)
+    * Port is 9732 (or the port you specified in mainnet.env for P2P_PORT_HOST)
+    * Protocol type is TCP
+    * Action is Allow the Connection
+
 # Notes
 After cloning or downloading repo, please feel free to edit all files as you see fit to suit your purposes.
 
