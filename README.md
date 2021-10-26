@@ -50,6 +50,8 @@ Then do the following:
     * Protocol type is TCP
     * Action is Allow the Connection
 
+The initial bootstrap process (snapshot import) using out-of-the-box bootstrap peers seems to solve the problem of needing to have a list of peers to use. However, if your node identity gets deleted or recreated for some reason, you may then have problems getting peers, even if firewall rules allow the needed P2P connection. Another solution for peers is to provide your node with a list of peers you have acquired.
+
 # Notes
 After cloning or downloading repo, please feel free to edit all files as you see fit to suit your purposes.
 
