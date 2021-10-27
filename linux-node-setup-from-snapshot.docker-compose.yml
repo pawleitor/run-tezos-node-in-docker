@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  node:
+    image: tezos-${NETWORK}-node-setup-from-snapshot
+    build:
+      context: .
+      dockerfile: node.dockerfile
+      args:
+        IMAGE: ${IMAGE}
+        STARTUP_SCRIPT: ${STARTUP_SCRIPT}
+    hostname: node
+    entrypoint: /bin/sh ${STARTUP_SCRIPT}
+    environment:
+      - NETWORK=$NETWORK
+      - P2P_PORT=${P2P_PORT_CONTAINER}
+      - RPC_PORT=${RPC_PORT_CONTAINER}
+      - SNAPSHOT_PATH=${SNAPSHOT_PATH}
+      - SNAPSHOT_FILE=${SNAPSHOT_FILE}
+      - SNAPSHOT_URL=${SNAPSHOT_URL}
+      - TEZOS_LOG=${TEZOS_LOG}
+      - TEZOS_NODE_DATA=${TEZOS_NODE_DATA}
+      - TEZOS_CLIENT_DATA=${TEZOS_CLIENT_DATA}
+    tty: true
+    ports:
+      - "${RPC_PORT_HOST}:${RPC_PORT_CONTAINER}"
+      - "${P2P_PORT_HOST}:${P2P_PORT_CONTAINER}"
+    volumes:
+      - type: volume
+        source: node-data-${NETWORK}
+        target: ${TEZOS_NODE_DATA}
+      - type: volume
+        source: client-data-${NETWORK}
+        target: ${TEZOS_CLIENT_DATA}
+      - type: volume
+        source: snapshot-data-${NETWORK}
+        target: ${SNAPSHOT_PATH}
+    restart: on-failure
+
+volumes:
+  node-data-${NETWORK}:
+  client-data-${NETWORK}:
+  snapshot-data-${NETWORK}:
