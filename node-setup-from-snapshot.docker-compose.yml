@@ -24,6 +24,7 @@ services:
     ports:
       - "${RPC_PORT_HOST}:${RPC_PORT_CONTAINER}"
       - "${P2P_PORT_HOST}:${P2P_PORT_CONTAINER}"
+    user: "${UID}:${GID}"      
     volumes:
       - ./data/${NETWORK}/node:${TEZOS_NODE_DATA}
       - ./data/${NETWORK}/client:${TEZOS_CLIENT_DATA}
