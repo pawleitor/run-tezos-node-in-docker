@@ -39,11 +39,11 @@ services:
 
 volumes:
   node-data:
-    external:
-      name: node-data-${NETWORK}
+    external: false
+    name: node-data-${NETWORK}
   client-data:
-    external:
-      name: client-data-${NETWORK}
+    external: false
+    name: client-data-${NETWORK}
   snapshot-data:
-    external:
-      name: snapshot-data-${NETWORK}
+    external: false
+    name: snapshot-data-${NETWORK}
