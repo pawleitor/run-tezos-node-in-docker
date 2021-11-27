@@ -29,4 +29,5 @@ services:
       - ./data/${NETWORK}/node:${TEZOS_NODE_DATA}
       - ./data/${NETWORK}/client:${TEZOS_CLIENT_DATA}
       - ./snapshot:${SNAPSHOT_PATH}
+      - /etc/nginx/ssl-certs:${CERTS_PATH}
     restart: on-failure
