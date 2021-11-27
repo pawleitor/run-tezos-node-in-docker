@@ -9,6 +9,9 @@ echo 'if config file does not exist, create it'
 && tezos-node config --config-file=$CONFIG --network=$NETWORK init \
 && tezos-node config --config-file=$CONFIG --rpc-addr=0.0.0.0:$RPC_PORT update \
 && tezos-node config --config-file=$CONFIG --data-dir=$DATA_DIR update \
+&& tezos-node config --config-file=$CONFIG --allow-all-rpc=0.0.0.0:8732 update \
+&& tezos-node config --config-file=$CONFIG --cors-header='content-type' update \
+&& tezos-node config --config-file=$CONFIG --cors-origin='*' update \
 || echo 'Config file already exists; retain it'
 
 echo ''
